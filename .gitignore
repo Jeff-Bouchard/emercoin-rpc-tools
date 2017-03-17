@@ -1,0 +1,5 @@
+.idea/
+sandbox/
+vendor/
+*~
+.DS_Store
