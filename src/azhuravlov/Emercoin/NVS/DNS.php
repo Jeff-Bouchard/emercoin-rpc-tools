@@ -2,9 +2,7 @@
 
 namespace azhuravlov\Emercoin\NVS;
 
-use azhuravlov\Emercoin\Connection\ConnectionInterface;
-
-class DNS extends AbstractRecord
+class DNS extends NVSEntity
 {
     /**
      * @var array
@@ -12,15 +10,12 @@ class DNS extends AbstractRecord
     protected $records;
 
     /**
-     * @param ConnectionInterface $connection
-     * @param string $record
+     * @param RecordInterface $record
      */
-    public function __construct(ConnectionInterface $connection, $record)
+    public function __construct(RecordInterface $record)
     {
-        parent::__construct($connection, "dns:{$record}");
-
-        $pairs = preg_split('/\||\n/', $this->getValue());
-
+        $this->record = $record;
+        $pairs = preg_split('/\||\n/', $this->record->getValue());
         foreach ($pairs as $val) {
             list($record, $value) = explode('=', $val, 2);
             if (strlen($record) > 0) {

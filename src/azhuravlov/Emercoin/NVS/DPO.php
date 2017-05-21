@@ -2,25 +2,29 @@
 
 namespace azhuravlov\Emercoin\NVS;
 
-use azhuravlov\Emercoin\Connection\ConnectionInterface;
-
-class DPO extends AbstractRecord
+class DPO extends NVSEntity
 {
     /** @var array */
-    protected $data;
+    protected $data = [];
 
     /**
-     * @param ConnectionInterface $connection
-     * @param string $record
+     * @param RecordInterface $record
      */
-    public function __construct(ConnectionInterface $connection, $record)
+    public function __construct(RecordInterface $record = null)
     {
-        parent::__construct($connection, "dpo:{$record}");
+        if ($record) {
+            list($type) = explode(':', $record->getName());
+            if ($type !== 'dpo') {
+                throw new \LogicException(sprintf("Expected record type \"dpo\", but got \"%s\"", $type));
+            }
 
-        foreach (explode("\n", utf8_decode($this->value)) as $row) {
-            list($k, $value) = explode('=', $row, 2);
-            if (strlen($k) > 0) {
-                $this->data[$k] = $value;
+            $this->record = $record;
+
+            foreach (explode("\n", utf8_decode($this->record->getValue())) as $row) {
+                list($key, $value) = explode('=', $row, 2);
+                if (strlen($key) > 0) {
+                    $this->data[$key] = $value;
+                }
             }
         }
     }
@@ -62,5 +66,27 @@ class DPO extends AbstractRecord
     public function getData()
     {
         return $this->data;
+    }
+
+    public function set($field, $value)
+    {
+        if (!is_string($field)) {
+            throw new \LogicException(sprintf('Expected $field type "string", but got "%s"', gettype($field)));
+        }
+
+        if (!is_string($value)) {
+            throw new \LogicException(sprintf('Expected $value type "string", but got "%s"', gettype($value)));
+        }
+
+        $this->data[$field] = $value;
+    }
+
+    public function get($field)
+    {
+        if (!is_string($field)) {
+            throw new \LogicException(sprintf('Expected $field type "string", but got "%s"', gettype($field)));
+        }
+
+        return $this->data[$field];
     }
 }

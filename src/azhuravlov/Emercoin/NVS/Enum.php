@@ -3,7 +3,7 @@
 namespace azhuravlov\Emercoin\NVS;
 
 
-class Enum extends AbstractRecord
+class Enum extends NVSEntity
 {
 
 }

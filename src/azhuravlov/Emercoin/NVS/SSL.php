@@ -2,25 +2,15 @@
 
 namespace azhuravlov\Emercoin\NVS;
 
-use azhuravlov\Emercoin\Connection\ConnectionInterface;
-use azhuravlov\Emercoin\NVS\Exception\RecordNotFoundException;
-
-class SSL extends AbstractRecord
+class SSL extends NVSEntity
 {
-    protected $isAlias;
-
-    public function __construct(ConnectionInterface $connection, $record)
+    public function __construct(RecordInterface $record)
     {
-        try {
-            parent::__construct($connection, "ssl:{$record}");
-        } catch (RecordNotFoundException $e) {
-            parent::__construct($connection, "ssh:{$record}");
-            $this->isAlias = true;
-        }
+        $this->record = $record;
     }
 
-    public function isAlias()
+    public function getValue()
     {
-        return $this->isAlias;
+        return $this->record->getValue();
     }
 }

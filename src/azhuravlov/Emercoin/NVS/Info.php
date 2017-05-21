@@ -3,7 +3,7 @@
 namespace azhuravlov\Emercoin\NVS;
 
 
-class Info extends AbstractRecord
+class Info extends NVSEntity
 {
 
 }

@@ -2,12 +2,29 @@
 
 namespace azhuravlov\Emercoin\NVS;
 
-use azhuravlov\Emercoin\Connection\ConnectionInterface;
-
-class SSH extends AbstractRecord
+class SSH extends NVSEntity
 {
-    public function __construct(ConnectionInterface $connection, $record)
+    public function __construct(RecordInterface $record)
     {
-        parent::__construct($connection, "ssh:{$record}");
+        list($type) = explode(':', $record->getName());
+
+        if ($type !== 'ssh') {
+            throw new \LogicException(sprintf("Expected record type \"ssh\", but got \"%s\"", $type));
+        }
+
+        $this->record = $record;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->record->getValue();
+    }
+
+    public function __toString()
+    {
+        return $this->getValue();
     }
 }
