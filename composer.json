@@ -21,7 +21,8 @@
   "config": {
     "platform": {
       "php": "7.0.15"
-    }
+    },
+    "bin-dir": "vendor/bin"
   },
   "autoload": {
     "psr-4": {
