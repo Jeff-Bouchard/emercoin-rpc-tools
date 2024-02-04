@@ -1,0 +1,84 @@
+repo_name: Jeff-Bouchard/emercoin-rpc-tools
+report_id: 17d6f73e17f6e7971307e1336e7d6109
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-04T14:47:02+00:00'
+requested_by: Jeff-Bouchard
+provider: github
+branch: master
+detected_tools_count: 6
+tools:
+- name: PHP
+  description: A popular general-purpose scripting language that is especially suited
+    to web development
+  website_url: http://www.php.net/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/Jeff-Bouchard/emercoin-rpc-tools
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/Jeff-Bouchard/emercoin-rpc-tools
+  detection_source: Repo Metadata
+- name: PHPUnit
+  description: Testing framework for PHP
+  website_url: https://phpunit.de/
+  version: 6.0.13
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/1616/1_WsEnddd5Y4EgEHsT054kUQ.jpeg
+  detection_source_url: https://github.com/Jeff-Bouchard/emercoin-rpc-tools/blob/master/composer.lock
+  detection_source: composer.json
+  last_updated_by: Artem Zhuravlov
+  last_updated_on: 2017-03-17 07:52:44.000000000 Z
+- name: Travis CI
+  description: A hosted continuous integration service for open source and private
+    projects
+  website_url: http://travis-ci.com/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/460/Lu6cGu0z_400x400.png
+  detection_source_url: https://github.com/Jeff-Bouchard/emercoin-rpc-tools/blob/master/.travis.yml
+  detection_source: ".travis.yml"
+  last_updated_by: Artem Zhuravlov
+  last_updated_on: 2017-03-17 07:52:44.000000000 Z
+- name: phpunit/phpunit
+  description: The PHP Unit Testing framework
+  package_url: https://packagist.org/phpunit/phpunit
+  version: 6.0.13
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Jeff-Bouchard/emercoin-rpc-tools/blob/master/composer.lock
+  detection_source: composer.json
+  last_updated_by: Artem Zhuravlov
+  last_updated_on: 2017-03-17 07:52:44.000000000 Z
+- name: symfony/class-loader
+  description: Symfony ClassLoader Component
+  package_url: https://packagist.org/symfony/class-loader
+  version: 3.2.8
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/Jeff-Bouchard/emercoin-rpc-tools/blob/master/composer.lock
+  detection_source: composer.json
+  last_updated_by: Artem Zhuravlov
+  last_updated_on: 2017-03-17 07:52:44.000000000 Z
